@@ -1,9 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Raleway&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 :root {
-  --fonts: 'Fira Sans', sans-serif, 'Raleway', sans-serif, 'Roboto', sans-serif;
+  --fonts: 'Abel', sans-serif;
+  --header-clr: rgb(229, 145, 0);
+  --container-clr: rgb(192, 192, 192);
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: var(--fonts);
+}
+
+.container {
+  background-color: var(--container-clr);
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas:
+    'header   header   header'
+    '......   main  ......';
+}
+
+.header {
+  grid-area: header;
+  background-color: var(--header-clr);
+  display: grid;
+  place-items: center;
+}
+
+.main {
+  grid-area: main;
+}
+
+.title {
+  font-size: 2.5rem;
 }
