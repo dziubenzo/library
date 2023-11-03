@@ -35,7 +35,7 @@ body {
 
 .main {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas:
     '. books .'
     '. books .';
@@ -51,4 +51,10 @@ body {
 .card {
   background-color: white;
   border-radius: 16px;
+}
+
+.card p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
 }
