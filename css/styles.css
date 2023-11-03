@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Raleway&family=Roboto:wght@300&display=swap');
+
+:root {
+  --fonts: 'Fira Sans', sans-serif, 'Raleway', sans-serif, 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--fonts);
+}
