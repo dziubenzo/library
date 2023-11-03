@@ -51,9 +51,20 @@ body {
 .card {
   background-color: white;
   border-radius: 16px;
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.card img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
 }
 
 .card p {
+  margin: 0;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
