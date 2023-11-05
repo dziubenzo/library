@@ -73,12 +73,12 @@ body {
 }
 
 .add-book {
-  background-color: var(--card-clr);
-  border-radius: var(--border-radius);
   display: grid;
 }
 
 .add-book-form {
+  background-color: var(--card-clr);
+  border-radius: var(--border-radius);
   padding: 16px;
 }
 

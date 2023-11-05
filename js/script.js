@@ -1,7 +1,11 @@
 const library = [];
 const booksDiv = document.querySelector('.books');
 const addBookDiv = document.querySelector('.add-book');
+const addBookButton = document.querySelector("img[alt='Add Book Icon'");
+const addBookButtonDiv = document.querySelector('.add-book-button');
+const addBookFormDiv = document.querySelector('.add-book-form');
 
+// Constructor function for Book objects
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -9,6 +13,7 @@ function Book(title, author, pages, read) {
   this.read = Boolean(read);
 }
 
+// Add some books to the library array manually
 library.push(new Book('Ślepnąc od świateł', 'Jakub Żulczyk', 520, true));
 library.push(new Book('How to Win at Chess', 'Levy Rozman', 272, false));
 library.push(new Book('Historia bez cenzury', 'Wojciech Drewniak', 288, true));
@@ -16,6 +21,10 @@ library.push(
   new Book('W pustyni i w puszczy', 'Henryk Sienkiewicz', 384, true)
 );
 
+addBookButton.addEventListener('click', showForm);
+displayBooks();
+
+// Display books already present in the library array
 function displayBooks() {
   let index = 0;
   for (book of library) {
@@ -52,4 +61,8 @@ function displayBooks() {
   }
 }
 
-displayBooks();
+// Display add book form
+function showForm() {
+  addBookButtonDiv.toggleAttribute('hidden');
+  addBookFormDiv.toggleAttribute('hidden');
+}
