@@ -59,7 +59,8 @@ body {
   padding: 16px 0;
 }
 
-.card img {
+.card img,
+img[alt='Submit Book Icon'] {
   height: 30px;
   width: 30px;
   cursor: pointer;
@@ -149,10 +150,11 @@ img[alt='Add Book Icon'] {
   cursor: pointer;
 }
 
-img[alt='Submit Book Icon'] {
-  height: 30px;
-  width: 30px;
+img[alt='Undo Icon'] {
+  height: 15px;
+  width: 15px;
   cursor: pointer;
+  place-self: end;
 }
 
 button[class='submit-book-button'] {
@@ -162,4 +164,8 @@ button[class='submit-book-button'] {
   background: none;
   border: none;
   place-self: center;
+}
+
+.icons-bottom {
+  display: grid;
 }

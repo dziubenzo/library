@@ -6,6 +6,7 @@ const addBookButtonDiv = document.querySelector('.add-book-button');
 const addBookFormDiv = document.querySelector('.add-book-form');
 const addBookForm = document.querySelector('#form');
 const titleField = document.querySelector("input[id='title-field']");
+const undoButton = document.querySelector("img[alt='Undo Icon']");
 let deleteButtons;
 
 // Constructor function for Book objects
@@ -24,7 +25,8 @@ library.push(
   new Book('W pustyni i w puszczy', 'Henryk Sienkiewicz', 384, true)
 );
 
-addBookButton.addEventListener('click', showForm);
+addBookButton.addEventListener('click', toggleForm);
+undoButton.addEventListener('click', toggleForm);
 addBookForm.addEventListener('submit', addBookToLibrary);
 displayBooks();
 
@@ -68,12 +70,14 @@ function displayBooks() {
   });
 }
 
-// Display add book form
-// Give the title form field focus
-function showForm() {
+// Display or hide add book form
+// Give the title form field focus if the add book button is clicked
+function toggleForm(event) {
   addBookButtonDiv.toggleAttribute('hidden');
   addBookFormDiv.toggleAttribute('hidden');
-  titleField.focus();
+  if (event.target === addBookButton) {
+    titleField.focus();
+  }
 }
 
 function addBookToLibrary(event) {
@@ -93,8 +97,7 @@ function addBookToLibrary(event) {
   // Clear form fields
   clearForm();
   // Hide the add book form and show the add book icon
-  addBookButtonDiv.toggleAttribute('hidden');
-  addBookFormDiv.toggleAttribute('hidden');
+  toggleForm();
 }
 
 // Remove all books from the DOM (helper function)
@@ -113,7 +116,7 @@ function clearForm() {
   addBookForm.elements['read-unread'].value = 'true';
 }
 
-// Remove a single book card from the DOM and library array
+// Remove a single book from the DOM and library array
 function removeOneBook(event) {
   // Remove from the DOM
   const bookCard = event.target.parentNode;
