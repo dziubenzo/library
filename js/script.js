@@ -33,7 +33,7 @@ addBookButton.addEventListener('click', showForm);
 addBookForm.addEventListener('submit', addBookToLibrary);
 displayBooks();
 
-// Display books already present in the library array
+// Display books contained in the library array
 function displayBooks() {
   let index = 0;
   for (book of library) {
@@ -79,10 +79,28 @@ function showForm() {
 }
 
 function addBookToLibrary(event) {
+  // Prevent form submission
   event.preventDefault();
+  // Get form values
   const title = addBookForm.elements['title-field'].value;
   const author = addBookForm.elements['author-field'].value;
   const pages = addBookForm.elements['pages-field'].value;
   const read = addBookForm.elements['read-unread'].value;
-  console.log(title, author, pages, read);
+  // Add the new book to the library array
+  library.push(new Book(title, author, pages, read));
+  // Remove books
+  removeBooks();
+  // Display books from the updated library array
+  displayBooks();
+  // Hide the add book form and show the add book icon
+  addBookButtonDiv.toggleAttribute('hidden');
+  addBookFormDiv.toggleAttribute('hidden');
+}
+
+// Remove all books from the DOM (helper function)
+function removeBooks() {
+  const bookCards = document.querySelectorAll('.card');
+  bookCards.forEach((book) => {
+    book.remove();
+  });
 }
