@@ -1,5 +1,6 @@
 const library = [];
 const booksDiv = document.querySelector('.books');
+const addBookDiv = document.querySelector('.add-book');
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -21,7 +22,7 @@ function displayBooks() {
     const card = document.createElement('div');
     card.setAttribute('class', 'card');
     card.setAttribute('data-book-id', `${index}`);
-    booksDiv.appendChild(card);
+    booksDiv.insertBefore(card, addBookDiv);
     const title = document.createElement('p');
     title.setAttribute('class', 'title');
     title.textContent = book.title;
