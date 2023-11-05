@@ -12,8 +12,8 @@ let deleteButtons;
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
-  this.pages = pages;
-  this.read = read;
+  this.pages = Number(pages);
+  this.read = String(read);
 }
 
 // Add some books to the library array manually
