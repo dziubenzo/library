@@ -16,7 +16,57 @@
       <main class="main">
         <div class="books">
           <div class="add-book">
-            <img src="./css/add-book-icon.svg" alt="Add Book Icon" />
+            <div class="add-book-form">
+              <form action="#" method="post">
+                <label for="title-field" hidden>Title</label>
+                <input
+                  type="text"
+                  name="title-field"
+                  id="title-field"
+                  placeholder="Title"
+                  required
+                />
+                <label for="author-field" hidden>Author</label>
+                <input
+                  type="text"
+                  name="author-field"
+                  id="author-field"
+                  placeholder="Author"
+                  required
+                />
+                <label for="pages-field" hidden>Pages</label>
+                <input
+                  type="tel"
+                  name="pages-field"
+                  id="pages-field"
+                  placeholder="Pages"
+                  pattern="[0-9]{5}"
+                  required
+                />
+                <div class="radio-buttons">
+                  <label for="read-radio">Read</label>
+                  <input
+                    type="radio"
+                    name="read-unread"
+                    id="read-radio"
+                    value="true"
+                    required
+                  />
+                  <label for="unread-radio">Unread</label>
+                  <input
+                    type="radio"
+                    name="read-unread"
+                    id="unread-radio"
+                    value="false"
+                    required
+                  />
+                </div>
+                <img src=".//css/submit-book-icon.svg" alt="Submit Book Icon">
+              </form>
+            </div>
+            <div class="add-book-button" hidden>
+              <img src="./css/add-book-icon.svg" alt="Add Book Icon" />
+            </div>
           </div>
         </div>
       </main>

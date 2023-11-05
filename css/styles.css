@@ -4,6 +4,7 @@
   --fonts: 'Noto Sans', sans-serif;
   --header-clr: rgb(229, 145, 0);
   --main-clr: rgb(192, 192, 192);
+  --card-clr: rgb(255, 255, 255);
   --gap: 32px;
 }
 
@@ -49,7 +50,7 @@ body {
 }
 
 .card {
-  background-color: white;
+  background-color: var(--card-clr);
   border-radius: 16px;
   display: grid;
   justify-items: center;
@@ -71,11 +72,27 @@ body {
 }
 
 .add-book {
+  background-color: var(--card-clr);
+  border-radius: 16px;
+  display: grid;
+}
+
+.add-book-form form {
+  display: grid;
+}
+
+.add-book-button {
   place-self: center;
 }
 
 img[alt='Add Book Icon'] {
   height: 100px;
   width: 100px;
+  cursor: pointer;
+}
+
+img[alt='Submit Book Icon'] {
+  height: 40px;
+  width: 40px;
   cursor: pointer;
 }
