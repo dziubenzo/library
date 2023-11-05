@@ -153,5 +153,13 @@ img[alt='Submit Book Icon'] {
   height: 30px;
   width: 30px;
   cursor: pointer;
+}
+
+button[class='submit-book-button'] {
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  background: none;
+  border: none;
   place-self: center;
 }
