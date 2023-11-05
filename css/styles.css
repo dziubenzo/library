@@ -77,8 +77,40 @@ body {
   display: grid;
 }
 
+.add-book-form {
+  padding: 16px;
+}
+
 .add-book-form form {
   display: grid;
+  gap: 16px;
+}
+
+.add-book-form .radio-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.radio-buttons label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  justify-self: center;
+}
+
+.read-radio-button,
+.unread-radio-button {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 16px;
+  justify-items: start;
+  align-items: center;
+}
+
+input[type='radio'] {
+  margin: 0;
+  height: 15px;
+  width: 15px;
+  accent-color: grey;
 }
 
 .add-book-button {
@@ -92,7 +124,8 @@ img[alt='Add Book Icon'] {
 }
 
 img[alt='Submit Book Icon'] {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   cursor: pointer;
+  place-self: center;
 }

@@ -44,24 +44,29 @@
                   required
                 />
                 <div class="radio-buttons">
-                  <label for="read-radio">Read</label>
-                  <input
-                    type="radio"
-                    name="read-unread"
-                    id="read-radio"
-                    value="true"
-                    required
-                  />
-                  <label for="unread-radio">Unread</label>
-                  <input
-                    type="radio"
-                    name="read-unread"
-                    id="unread-radio"
-                    value="false"
-                    required
-                  />
+                  <div class="read-radio-button">
+                    <label for="read-radio">Read</label>
+                    <input
+                      type="radio"
+                      name="read-unread"
+                      id="read-radio"
+                      value="true"
+                      checked
+                      required
+                    />
+                  </div>
+                  <div class="unread-radio-button">
+                    <label for="unread-radio">Not read</label>
+                    <input
+                      type="radio"
+                      name="read-unread"
+                      id="unread-radio"
+                      value="false"
+                      required
+                    />
+                  </div>
                 </div>
-                <img src=".//css/submit-book-icon.svg" alt="Submit Book Icon">
+                <img src="./css/submit-book-icon.svg" alt="Submit Book Icon">
               </form>
             </div>
             <div class="add-book-button" hidden>
