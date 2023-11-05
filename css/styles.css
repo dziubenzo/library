@@ -69,3 +69,12 @@ body {
   font-weight: bold;
   text-align: center;
 }
+
+.add-book {
+  place-self: center;
+}
+
+img[alt='Add Book Icon'] {
+  height: 100px;
+  width: 100px;
+}
