@@ -92,6 +92,8 @@ function addBookToLibrary(event) {
   removeBooks();
   // Display books from the updated library array
   displayBooks();
+  // Clear form fields
+  clearForm();
   // Hide the add book form and show the add book icon
   addBookButtonDiv.toggleAttribute('hidden');
   addBookFormDiv.toggleAttribute('hidden');
@@ -103,4 +105,12 @@ function removeBooks() {
   bookCards.forEach((book) => {
     book.remove();
   });
+}
+
+// Clear add book form fields and reset them to default (helper function)
+function clearForm() {
+  addBookForm.elements['title-field'].value = '';
+  addBookForm.elements['author-field'].value = '';
+  addBookForm.elements['pages-field'].value = '';
+  addBookForm.elements['read-unread'].value = 'true';
 }
