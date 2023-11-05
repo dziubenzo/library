@@ -1,10 +1,17 @@
 const library = [];
 const booksDiv = document.querySelector('.books');
 const addBookDiv = document.querySelector('.add-book');
-const addBookButton = document.querySelector("img[alt='Add Book Icon'");
+const addBookButton = document.querySelector("img[alt='Add Book Icon']");
 const addBookButtonDiv = document.querySelector('.add-book-button');
 const addBookFormDiv = document.querySelector('.add-book-form');
-const titleField = document.querySelector("input[id='title-field'");
+const addBookForm = document.querySelector('#form');
+const titleField = document.querySelector("input[id='title-field']");
+// const authorField = document.querySelector("input[id='author-field']");
+// const pagesField = document.querySelector("input[id='pages-field']");
+
+// const submitBookButton = document.querySelector(
+//   "button[class='submit-book-button']"
+// );
 
 // Constructor function for Book objects
 function Book(title, author, pages, read) {
@@ -23,6 +30,7 @@ library.push(
 );
 
 addBookButton.addEventListener('click', showForm);
+addBookForm.addEventListener('submit', addBookToLibrary);
 displayBooks();
 
 // Display books already present in the library array
@@ -63,8 +71,18 @@ function displayBooks() {
 }
 
 // Display add book form
+// Give the title form field focus
 function showForm() {
   addBookButtonDiv.toggleAttribute('hidden');
   addBookFormDiv.toggleAttribute('hidden');
   titleField.focus();
+}
+
+function addBookToLibrary(event) {
+  event.preventDefault();
+  const title = addBookForm.elements['title-field'].value;
+  const author = addBookForm.elements['author-field'].value;
+  const pages = addBookForm.elements['pages-field'].value;
+  const read = addBookForm.elements['read-unread'].value;
+  console.log(title, author, pages, read);
 }
