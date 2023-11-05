@@ -4,6 +4,7 @@ const addBookDiv = document.querySelector('.add-book');
 const addBookButton = document.querySelector("img[alt='Add Book Icon'");
 const addBookButtonDiv = document.querySelector('.add-book-button');
 const addBookFormDiv = document.querySelector('.add-book-form');
+const titleField = document.querySelector("input[id='title-field'");
 
 // Constructor function for Book objects
 function Book(title, author, pages, read) {
@@ -65,4 +66,5 @@ function displayBooks() {
 function showForm() {
   addBookButtonDiv.toggleAttribute('hidden');
   addBookFormDiv.toggleAttribute('hidden');
+  titleField.focus();
 }
