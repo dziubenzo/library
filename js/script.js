@@ -18,7 +18,7 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = Boolean(read);
+  this.read = read;
 }
 
 // Add some books to the library array manually
@@ -54,7 +54,7 @@ function displayBooks() {
     pages.textContent = book.pages;
     card.appendChild(pages);
     const read = document.createElement('p');
-    if (book.read) {
+    if (book.read === 'true') {
       read.textContent = 'Read';
       read.setAttribute('class', 'read');
     } else {
