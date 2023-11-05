@@ -8,7 +8,7 @@ function Book(title, author, pages, read) {
   this.read = Boolean(read);
 }
 
-library.push(new Book('Ślepnąć od świateł', 'Jakub Żulczyk', 520, true));
+library.push(new Book('Ślepnąc od świateł', 'Jakub Żulczyk', 520, true));
 library.push(new Book('How to Win at Chess', 'Levy Rozman', 272, false));
 library.push(new Book('Historia bez cenzury', 'Wojciech Drewniak', 288, true));
 

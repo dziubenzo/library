@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
 :root {
-  --fonts: 'Abel', sans-serif;
+  --fonts: 'Noto Sans', sans-serif;
   --header-clr: rgb(229, 145, 0);
   --main-clr: rgb(192, 192, 192);
   --gap: 32px;
