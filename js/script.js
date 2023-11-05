@@ -11,6 +11,9 @@ function Book(title, author, pages, read) {
 library.push(new Book('Ślepnąc od świateł', 'Jakub Żulczyk', 520, true));
 library.push(new Book('How to Win at Chess', 'Levy Rozman', 272, false));
 library.push(new Book('Historia bez cenzury', 'Wojciech Drewniak', 288, true));
+library.push(
+  new Book('W pustyni i w puszczy', 'Henryk Sienkiewicz', 384, true)
+);
 
 function displayBooks() {
   let index = 0;
@@ -32,11 +35,12 @@ function displayBooks() {
     pages.textContent = book.pages;
     card.appendChild(pages);
     const read = document.createElement('p');
-    read.setAttribute('class', 'read');
     if (book.read) {
       read.textContent = 'Read';
+      read.setAttribute('class', 'read');
     } else {
       read.textContent = 'Not read';
+      read.setAttribute('class', 'unread');
     }
     card.appendChild(read);
     const deleteIcon = document.createElement('img');
