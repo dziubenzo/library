@@ -6,12 +6,7 @@ const addBookButtonDiv = document.querySelector('.add-book-button');
 const addBookFormDiv = document.querySelector('.add-book-form');
 const addBookForm = document.querySelector('#form');
 const titleField = document.querySelector("input[id='title-field']");
-// const authorField = document.querySelector("input[id='author-field']");
-// const pagesField = document.querySelector("input[id='pages-field']");
-
-// const submitBookButton = document.querySelector(
-//   "button[class='submit-book-button']"
-// );
+let deleteButtons;
 
 // Constructor function for Book objects
 function Book(title, author, pages, read) {
@@ -35,11 +30,9 @@ displayBooks();
 
 // Display books contained in the library array
 function displayBooks() {
-  let index = 0;
   for (book of library) {
     const card = document.createElement('div');
     card.setAttribute('class', 'card');
-    card.setAttribute('data-book-id', `${index}`);
     booksDiv.insertBefore(card, addBookDiv);
     const title = document.createElement('p');
     title.setAttribute('class', 'title');
@@ -66,8 +59,13 @@ function displayBooks() {
     deleteIcon.setAttribute('src', './css/delete-icon.svg');
     deleteIcon.setAttribute('alt', 'Delete Icon');
     card.appendChild(deleteIcon);
-    index++;
   }
+  // Update delete buttons
+  // Listen for delete button clicks
+  deleteButtons = document.querySelectorAll("img[alt='Delete Icon'");
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', removeOneBook);
+  });
 }
 
 // Display add book form
@@ -89,7 +87,7 @@ function addBookToLibrary(event) {
   // Add the new book to the library array
   library.push(new Book(title, author, pages, read));
   // Remove books
-  removeBooks();
+  removeAllBooks();
   // Display books from the updated library array
   displayBooks();
   // Clear form fields
@@ -100,7 +98,7 @@ function addBookToLibrary(event) {
 }
 
 // Remove all books from the DOM (helper function)
-function removeBooks() {
+function removeAllBooks() {
   const bookCards = document.querySelectorAll('.card');
   bookCards.forEach((book) => {
     book.remove();
@@ -113,4 +111,22 @@ function clearForm() {
   addBookForm.elements['author-field'].value = '';
   addBookForm.elements['pages-field'].value = '';
   addBookForm.elements['read-unread'].value = 'true';
+}
+
+// Remove a single book card from the DOM and library array
+function removeOneBook(event) {
+  // Remove from the DOM
+  const bookCard = event.target.parentNode;
+  bookCard.remove();
+  // Remove from the library array;
+  const title = bookCard.firstChild.innerHTML;
+  let bookCardIndex = 0;
+  for (book of library) {
+    if (book.title === title) {
+      bookCardIndex = library.indexOf(book);
+      break;
+    }
+  }
+  library.splice(bookCardIndex, 1);
+  console.log(library);
 }
