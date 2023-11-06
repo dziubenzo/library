@@ -131,15 +131,8 @@ function removeOneBook(event) {
   bookCard.remove();
   // Remove from the library array;
   const title = bookCard.firstChild.innerHTML;
-  let bookCardIndex = 0;
-  for (book of library) {
-    if (book.title === title) {
-      bookCardIndex = library.indexOf(book);
-      break;
-    }
-  }
-  library.splice(bookCardIndex, 1);
-  console.log(library);
+  const bookIndex = findBookIndex(title);
+  library.splice(bookIndex, 1);
 }
 
 // Toggle book as read/unread in the DOM and library array
@@ -153,4 +146,21 @@ function toggleBookStatus(event) {
   event.target.classList.toggle('read');
   event.target.classList.toggle('unread');
   // Modify the library array
+  const bookCard = event.target.parentNode;
+  const title = bookCard.firstChild.innerHTML;
+  const bookIndex = findBookIndex(title);
+  if (library[bookIndex].read === 'true') {
+    library[bookIndex].read = 'false';
+  } else {
+    library[bookIndex].read = 'true';
+  }
+}
+
+// Find book array index based on book title (helper function)
+function findBookIndex(title) {
+  for (book of library) {
+    if (book.title === title) {
+      return library.indexOf(book);
+    }
+  }
 }
