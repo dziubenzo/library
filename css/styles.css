@@ -5,10 +5,11 @@
   --header-clr: rgb(229, 145, 0);
   --main-clr: rgb(192, 192, 192);
   --card-clr: rgb(255, 255, 255);
+  --card-box-shadow: 2px 2px 8px rgb(159, 159, 159);
   --gap: 32px;
   --border-radius: 16px;
   --read-clr: rgb(137, 254, 137, 0.5);
-  --unread-clr: rgba(255, 79, 79, 0.5);
+  --unread-clr: rgba(255, 101, 101, 0.5);
 }
 
 body {
@@ -56,16 +57,23 @@ body {
   background-color: var(--card-clr);
   border-radius: var(--border-radius);
   display: grid;
-  justify-items: center;
+  place-items: center;
   gap: 16px;
   padding: 16px 0;
+  box-shadow: var(--card-box-shadow);
 }
 
-.card img,
+img[alt='Delete Icon'],
 img[alt='Submit Book Icon'] {
   height: 30px;
   width: 30px;
   cursor: pointer;
+}
+
+img[alt='Delete Icon']:hover {
+  color: #ff0000;
+  filter: invert(16%) sepia(87%) saturate(6348%) hue-rotate(357deg)
+    brightness(96%) contrast(117%);
 }
 
 .card p {
@@ -83,6 +91,7 @@ img[alt='Submit Book Icon'] {
   background-color: var(--card-clr);
   border-radius: var(--border-radius);
   padding: 16px;
+  box-shadow: var(--card-box-shadow);
 }
 
 .add-book-form form {
@@ -130,7 +139,7 @@ input[type='tel']:focus {
   border-radius: var(--border-radius);
   border: 1px solid rgb(231, 231, 231);
   padding: 4px 12px;
-  overflow: scroll;
+  text-align: center;
 }
 
 input[type='text']:focus,
@@ -140,6 +149,7 @@ input[type='tel']:focus {
 
 ::placeholder {
   text-align: center;
+  opacity: 0.8;
 }
 
 .add-book-button {
@@ -150,6 +160,12 @@ img[alt='Add Book Icon'] {
   height: 100px;
   width: 100px;
   cursor: pointer;
+  filter: invert(44%) sepia(0%) saturate(214%) hue-rotate(219deg)
+    brightness(98%) contrast(88%);
+}
+
+img[alt='Add Book Icon']:hover {
+  filter: none;
 }
 
 img[alt='Undo Icon'] {
