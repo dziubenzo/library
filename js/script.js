@@ -8,6 +8,7 @@ const addBookForm = document.querySelector('#form');
 const titleField = document.querySelector("input[id='title-field']");
 const undoButton = document.querySelector("img[alt='Undo Icon']");
 let deleteButtons;
+let statusParas;
 
 // Constructor function for Book objects
 function Book(title, author, pages, read) {
@@ -52,10 +53,10 @@ function displayBooks() {
     const read = document.createElement('p');
     if (book.read === 'true') {
       read.textContent = 'Read';
-      read.setAttribute('class', 'read');
+      read.setAttribute('class', 'status read');
     } else {
       read.textContent = 'Not read';
-      read.setAttribute('class', 'unread');
+      read.setAttribute('class', 'status unread');
     }
     card.appendChild(read);
     const deleteIcon = document.createElement('img');
@@ -68,6 +69,12 @@ function displayBooks() {
   deleteButtons = document.querySelectorAll("img[alt='Delete Icon'");
   deleteButtons.forEach((button) => {
     button.addEventListener('click', removeOneBook);
+  });
+  // Update status paragraphs
+  // Listen for status paragraph clicks
+  statusParas = document.querySelectorAll('.card .status');
+  statusParas.forEach((para) => {
+    para.addEventListener('click', toggleBookStatus);
   });
 }
 
@@ -133,4 +140,17 @@ function removeOneBook(event) {
   }
   library.splice(bookCardIndex, 1);
   console.log(library);
+}
+
+// Toggle book as read/unread in the DOM and library array
+function toggleBookStatus(event) {
+  // Modify the DOM
+  if (event.target.innerHTML === 'Read') {
+    event.target.innerHTML = 'Not read';
+  } else {
+    event.target.innerHTML = 'Read';
+  }
+  event.target.classList.toggle('read');
+  event.target.classList.toggle('unread');
+  // Modify the library array
 }
