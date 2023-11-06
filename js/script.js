@@ -105,7 +105,7 @@ function addBookToLibrary(event) {
   // Clear form fields
   clearForm();
   // Hide the add book form and show the add book icon
-  toggleForm();
+  toggleForm(event);
 }
 
 // Remove all books from the DOM (helper function)
