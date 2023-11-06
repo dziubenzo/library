@@ -48,7 +48,7 @@ function displayBooks() {
     card.appendChild(author);
     const pages = document.createElement('p');
     pages.setAttribute('class', 'pages');
-    pages.textContent = book.pages;
+    pages.textContent = `${book.pages} pages`;
     card.appendChild(pages);
     const read = document.createElement('p');
     if (book.read === 'true') {
@@ -134,7 +134,7 @@ function removeOneBook(event) {
   const bookCard = event.target.parentNode;
   bookCard.remove();
   // Remove from the library array;
-  const title = bookCard.firstChild.innerHTML;
+  const title = bookCard.firstChild.textContent;
   const bookIndex = findBookIndex(title);
   library.splice(bookIndex, 1);
 }
@@ -142,16 +142,16 @@ function removeOneBook(event) {
 // Toggle book as read/unread in the DOM and library array
 function toggleBookStatus(event) {
   // Modify the DOM
-  if (event.target.innerHTML === 'Read') {
-    event.target.innerHTML = 'Not read';
+  if (event.target.textContent === 'Read') {
+    event.target.textContent = 'Not read';
   } else {
-    event.target.innerHTML = 'Read';
+    event.target.textContent = 'Read';
   }
   event.target.classList.toggle('read');
   event.target.classList.toggle('unread');
   // Modify the library array
   const bookCard = event.target.parentNode;
-  const title = bookCard.firstChild.innerHTML;
+  const title = bookCard.firstChild.textContent;
   const bookIndex = findBookIndex(title);
   if (library[bookIndex].read === 'true') {
     library[bookIndex].read = 'false';

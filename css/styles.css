@@ -49,7 +49,7 @@ body {
 .books {
   grid-area: books;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--gap);
 }
 
@@ -59,7 +59,7 @@ body {
   display: grid;
   place-items: center;
   gap: 16px;
-  padding: 16px 0;
+  padding: 16px 8px;
   box-shadow: var(--card-box-shadow);
 }
 
@@ -80,6 +80,21 @@ img[alt='Delete Icon']:hover {
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
+}
+
+.card .title {
+  font-style: italic;
+}
+
+.card .author,
+.card .pages,
+.card .status {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.card .status {
+  font-weight: bold;
 }
 
 .add-book {
