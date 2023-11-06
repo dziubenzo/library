@@ -71,7 +71,6 @@ img[alt='Submit Book Icon'] {
 }
 
 img[alt='Delete Icon']:hover {
-  color: #ff0000;
   filter: invert(16%) sepia(87%) saturate(6348%) hue-rotate(357deg)
     brightness(96%) contrast(117%);
 }

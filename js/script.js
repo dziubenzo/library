@@ -80,11 +80,15 @@ function displayBooks() {
 
 // Display or hide add book form
 // Give the title form field focus if the add book button is clicked
+// Clear form fields if the undo button is clicked 
 function toggleForm(event) {
   addBookButtonDiv.toggleAttribute('hidden');
   addBookFormDiv.toggleAttribute('hidden');
   if (event.target === addBookButton) {
     titleField.focus();
+  }
+  if (event.target === undoButton) {
+    clearForm();
   }
 }
 
