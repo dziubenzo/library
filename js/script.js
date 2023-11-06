@@ -28,6 +28,7 @@ library.push(
 addBookButton.addEventListener('click', toggleForm);
 undoButton.addEventListener('click', toggleForm);
 addBookForm.addEventListener('submit', addBookToLibrary);
+
 displayBooks();
 
 // Display books contained in the library array

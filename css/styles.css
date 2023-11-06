@@ -7,6 +7,8 @@
   --card-clr: rgb(255, 255, 255);
   --gap: 32px;
   --border-radius: 16px;
+  --read-clr: rgb(137, 254, 137, 0.5);
+  --unread-clr: rgba(255, 79, 79, 0.5);
 }
 
 body {
@@ -168,4 +170,19 @@ button[class='submit-book-button'] {
 
 .icons-bottom {
   display: grid;
+}
+
+.card .read,
+.card .unread {
+  padding: 0 8px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.card .read {
+  background-color: var(--read-clr);
+}
+
+.card .unread {
+  background-color: var(--unread-clr);
 }
