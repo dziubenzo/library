@@ -8,8 +8,12 @@
   --card-box-shadow: 2px 2px 8px rgb(159, 159, 159);
   --gap: 32px;
   --border-radius: 16px;
-  --read-clr: rgb(137, 254, 137, 0.5);
-  --unread-clr: rgba(255, 101, 101, 0.5);
+  --read-clr: rgb(137, 254, 137, 0.3);
+  --unread-clr: rgba(255, 101, 101, 0.3);
+}
+
+::selection {
+  background-color: var(--main-clr);
 }
 
 body {
@@ -77,19 +81,17 @@ img[alt='Delete Icon']:hover {
 
 .card p {
   margin: 0;
-  font-size: 1.2rem;
-  font-weight: bold;
   text-align: center;
 }
 
 .card .title {
+  font-size: 1.2rem;
+  font-weight: bold;
   font-style: italic;
 }
 
 .card .author,
-.card .pages,
-.card .status {
-  font-size: 1rem;
+.card .pages {
   font-weight: normal;
 }
 
@@ -204,7 +206,7 @@ button[class='submit-book-button'] {
 
 .card .read,
 .card .unread {
-  padding: 0 8px;
+  padding: 0 12px;
   border-radius: var(--border-radius);
   cursor: pointer;
 }
