@@ -218,3 +218,9 @@ button[class='submit-book-button'] {
 .card .unread {
   background-color: var(--unread-clr);
 }
+
+@media (width <= 768px) {
+  .main {
+    grid-template-columns: 1fr 6fr 1fr;
+  }
+}
