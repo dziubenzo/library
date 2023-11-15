@@ -10,12 +10,14 @@ const undoButton = document.querySelector("img[alt='Undo Icon']");
 let deleteButtons;
 let statusParas;
 
-// Constructor function for Book objects
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = Number(pages);
-  this.read = String(read);
+// Class for Book objects
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = Number(pages);
+    this.read = String(read);
+  }
 }
 
 // Add some books to the library array manually
