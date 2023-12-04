@@ -82,12 +82,14 @@ function displayBooks() {
 
 // Display or hide add book form
 // Give the title form field focus if the add book button is clicked
-// Clear form fields if the undo button is clicked 
+// Clear form fields if the undo button is clicked
 function toggleForm(event) {
   addBookButtonDiv.toggleAttribute('hidden');
   addBookFormDiv.toggleAttribute('hidden');
   if (event.target === addBookButton) {
     titleField.focus();
+    // Show custom error messages when the form fields are invalid
+    showCustomErrorMessages();
   }
   if (event.target === undoButton) {
     clearForm();
@@ -171,7 +173,37 @@ function findBookIndex(title) {
   }
 }
 
-// Add custom error messages to form fields
+// Show custom error messages if the form is invalid
 function showCustomErrorMessages() {
-  
+  const title = document.querySelector('input[name="title-field"]');
+  const author = document.querySelector('input[name="author-field"]');
+  const pages = document.querySelector('input[name="pages-field"]');
+
+  title.addEventListener('input', () => {
+    if (title.validity.tooShort) {
+      title.setCustomValidity(
+        'The book title field must be at least 3 characters long.'
+      );
+    } else {
+      title.setCustomValidity('');
+    }
+  });
+  author.addEventListener('input', () => {
+    if (author.validity.tooShort) {
+      author.setCustomValidity(
+        'The book author field must be at least 3 characters long.'
+      );
+    } else {
+      author.setCustomValidity('');
+    }
+  });
+  pages.addEventListener('input', () => {
+    if (pages.validity.patternMismatch) {
+      pages.setCustomValidity(
+        'The book pages field must be in the range of 1 to 99999.'
+      );
+    } else {
+      pages.setCustomValidity('');
+    }
+  });
 }
