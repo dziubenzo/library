@@ -170,3 +170,8 @@ function findBookIndex(title) {
     }
   }
 }
+
+// Add custom error messages to form fields
+function showCustomErrorMessages() {
+  
+}
