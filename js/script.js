@@ -88,7 +88,7 @@ function toggleForm(event) {
   addBookFormDiv.toggleAttribute('hidden');
   if (event.target === addBookButton) {
     titleField.focus();
-    // Show custom error messages when the form fields are invalid
+    // Show custom error messages when the form fields are invalid or empty
     showCustomErrorMessages();
   }
   if (event.target === undoButton) {
@@ -173,37 +173,42 @@ function findBookIndex(title) {
   }
 }
 
-// Show custom error messages if the form is invalid
+// Show custom error messages
 function showCustomErrorMessages() {
-  const title = document.querySelector('input[name="title-field"]');
-  const author = document.querySelector('input[name="author-field"]');
-  const pages = document.querySelector('input[name="pages-field"]');
+  const fields = document.querySelectorAll('input[name*="field"]');
+  const submitBookButton = document.querySelector(
+    'button[class="submit-book-button"]'
+  );
 
-  title.addEventListener('input', () => {
-    if (title.validity.tooShort) {
-      title.setCustomValidity(
-        'The book title field must be at least 3 characters long.'
-      );
-    } else {
-      title.setCustomValidity('');
-    }
+  submitBookButton.addEventListener('click', () => {
+    fields.forEach((field) => {
+      // Make sure custom messages are shown when fields are empty
+      showAppropriateMessage(field);
+      // Make sure custom messages are shown when fields are being filled
+      field.addEventListener('input', () => {
+        if (!field.validity.valid) {
+          showAppropriateMessage(field);
+        }
+      });
+    });
   });
-  author.addEventListener('input', () => {
-    if (author.validity.tooShort) {
-      author.setCustomValidity(
-        'The book author field must be at least 3 characters long.'
-      );
-    } else {
-      author.setCustomValidity('');
-    }
-  });
-  pages.addEventListener('input', () => {
-    if (pages.validity.patternMismatch) {
-      pages.setCustomValidity(
-        'The book pages field must be in the range of 1 to 99999.'
-      );
-    } else {
-      pages.setCustomValidity('');
-    }
-  });
+}
+
+// Choose which error message to show depending on validation violation
+function showAppropriateMessage(element) {
+  if (element.validity.valueMissing) {
+    element.setCustomValidity(
+      `The ${element.placeholder.toLowerCase()} field is required.`
+    );
+  } else if (element.validity.patternMismatch) {
+    element.setCustomValidity(
+      `The book ${element.placeholder.toLowerCase()} field must be in the range of 1 to 99999.`
+    );
+  } else if (element.validity.tooShort) {
+    element.setCustomValidity(
+      `The book ${element.placeholder.toLowerCase()} field must be at least 3 characters long.`
+    );
+  } else {
+    element.setCustomValidity('');
+  }
 }
